@@ -12,6 +12,12 @@ services:
     depends_on:
       - product
       - auth
+    volumes:
+      - ./certs/:/certs/
+    networks:
+      main:
+    ports:
+      - 8000:8000
 
   product:
     image: nzweb/cloud305-product
@@ -27,6 +33,8 @@ services:
       DB_PORT: 3309
     depends_on:
       - product-db
+    networks:
+      main:
 
   auth:
     image: nzweb/cloud305-auth
@@ -43,6 +51,8 @@ services:
       JWT_SECRET_KEY: secret
     depends_on:
       - auth-db
+    networks:
+      main:
 
   auth-db:
     image: mariadb
@@ -55,6 +65,8 @@ services:
       - MYSQL_TCP_PORT=3306
     expose:
       - 3306
+    networks:
+      main:
 
   auth-phpmyadmin:
     image: phpmyadmin
@@ -71,6 +83,8 @@ services:
       - 8002:80
     depends_on:
       - auth-db
+    networks:
+      main:
 
   product-db:
     image: mariadb
@@ -83,6 +97,8 @@ services:
       - MYSQL_TCP_PORT=3309
     expose:
       - 3309
+    networks:
+      main:
 
   product-phpmyadmin:
     image: phpmyadmin/phpmyadmin
@@ -97,15 +113,25 @@ services:
     restart: always
     ports:
       - 8001:80
+    networks:
+      main:
 
   proxy:
     build: proxy
     ports:
       - 80:80
+      - 443:443
     depends_on:
       - product
       - auth
+    volumes:
+      - ./certs/:/certs/
+    networks:
+      main:
 
 volumes:
   auth-db-data:
   product-db-data:
+networks:
+  main:
+    driver: bridge
