@@ -1,6 +1,12 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 import signInApi, { SignInParams } from '../../api/auth/signin';
+import { RootState } from '../../store/store';
+import {
+  getAccessTokenFromLS,
+  removeAccessTokenFromSL,
+  setAccessTokenToLS,
+} from '../../utills/token/token';
 
 export enum EAuthStatus {
   default = 'DEFAULT',
@@ -10,23 +16,21 @@ export enum EAuthStatus {
 }
 
 export interface AuthState {
-  uid: string;
-  email: string;
-  error: Error | null;
+  errorMessage: string;
   hasAuth: boolean;
   status: EAuthStatus;
+  token: string;
 }
 
 const initialState: AuthState = {
   hasAuth: false,
-  email: '',
-  uid: '',
-  error: null,
+  errorMessage: '',
   status: EAuthStatus.default,
+  token: getAccessTokenFromLS() ?? '',
 };
 
-export const signIn = createAsyncThunk('auth/login', async (arg: SignInParams) => {
-  return signInApi(arg);
+export const signIn = createAsyncThunk('auth/login', (data: SignInParams) => {
+  return signInApi(data);
 });
 
 export const authSlice = createSlice({
@@ -37,27 +41,30 @@ export const authSlice = createSlice({
     builder
       .addCase(signIn.pending, (state) => {
         state.status = EAuthStatus.loading;
-        state.error = null;
+        state.errorMessage = '';
+        removeAccessTokenFromSL();
       })
-      .addCase(signIn.rejected, (state, { payload }) => {
+      .addCase(signIn.rejected, (state, { error }) => {
         state.status = EAuthStatus.fail;
-        state.uid = '';
-        state.email = '';
-        state.error = payload as Error;
+        state.hasAuth = true;
+        state.token = '';
+
+        removeAccessTokenFromSL();
+        state.errorMessage = error.message ?? '';
+        console.log(error.message);
+
         state.hasAuth = false;
       })
       .addCase(signIn.fulfilled, (state, { payload }) => {
-        state.email = payload.data.email;
-        state.uid = payload.data.id;
         state.hasAuth = true;
-        state.error = null;
-
-        console.log(payload.headers);
+        state.errorMessage = '';
+        state.status = EAuthStatus.success;
+        const res = payload.data;
+        setAccessTokenToLS(res.token);
       });
   },
 });
 
-// Action creators are generated for each case reducer function
-export const {} = authSlice.actions;
+export const authSelector = (state: RootState) => state.auth;
 
 export default authSlice.reducer;

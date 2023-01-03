@@ -21,9 +21,14 @@ function App() {
         </p>
 
         <div className="body">
-          <button onClick={() => dispatch(increment())}>🪂 Click me : {count}</button>
+          <button onClick={() => dispatch(increment())}>
+            🪂 Click me : {count}
+          </button>
 
-          <p> Don&apos;t forgot to install Eslint and Prettier in Your Vscode.</p>
+          <p>
+            {' '}
+            Don&apos;t forgot to install Eslint and Prettier in Your Vscode.
+          </p>
 
           <p>
             Mess up the code in <code>App.tsx </code> and save the file.

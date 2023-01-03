@@ -2,12 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d687a4bc-7d08-40b5-ab05-cf27f9cb4df9" name="Changes" comment="feat: finish base config">
+      <change afterPath="$PROJECT_DIR$/src/api/genApi.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/api/product/getProductById.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/api/swagger.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modules/auth/components/AuthForm/AuthForm.props.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modules/auth/components/AuthForm/AuthForm.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modules/auth/components/Placeholder/Placeholder.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modules/auth/components/StatusAlert/StatusAlert.props.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modules/auth/components/StatusAlert/StatusAlert.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utills/token/token.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../api-gateway/main" beforeDir="false" afterPath="$PROJECT_DIR$/../api-gateway/main" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../api-gateway/pkg/auth/routes/login.go" beforeDir="false" afterPath="$PROJECT_DIR$/../api-gateway/pkg/auth/routes/login.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.prettierrc.js" beforeDir="false" afterPath="$PROJECT_DIR$/.prettierrc.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/auth/signin.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/auth/signin.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/auth/AuthPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/auth/AuthPage.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/modules/auth/AuthSlice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/auth/AuthSlice.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/store.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -18,6 +30,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="JavaScript File" />
         <option value="TypeScript JSX File" />
         <option value="TypeScript File" />
       </list>
@@ -40,7 +53,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/evgenijfedoseev/development/golang/base-ms-go/services/frontend/src/features/auth",
+    "last_opened_file_path": "/Users/evgenijfedoseev/development/golang/base-ms-go/services/frontend/src/api",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.standard": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -54,10 +67,46 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/api" />
       <recent name="$PROJECT_DIR$/src/features/auth" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Node.js.genApi.js">
+    <configuration name="genApi.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/src/api/genApi.js" working-dir="$PROJECT_DIR$/src/api">
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="SwaggerCodegen">
+      <option name="activeConfigurationType" value="FILE" />
+      <option name="configurationPath" value="" />
+      <option name="customJreEnabled" value="false" />
+      <option name="customTemplatesPath" value="" />
+      <option name="enableDebugLogging" value="false" />
+      <option name="generateToPath" value="$PROJECT_DIR$/gen" />
+      <option name="generationParameters">
+        <list />
+      </option>
+      <option name="generatorPath" value="https://repo1.maven.org/maven2/org/openapitools/openapi-generator-cli/5.0.0/openapi-generator-cli-5.0.0.jar" />
+      <option name="jdkPath" value="Default" />
+      <option name="language" value="java" />
+      <option name="specificationPath" value="$PROJECT_DIR$/src/api/swagger.yaml" />
+      <method v="2" />
+    </configuration>
+    <configuration name="swagger.yml" type="SwaggerCodegen" temporary="true">
+      <option name="activeConfigurationType" value="FILE" />
+      <option name="configurationPath" value="" />
+      <option name="customJreEnabled" value="false" />
+      <option name="customTemplatesPath" value="" />
+      <option name="enableDebugLogging" value="false" />
+      <option name="generateToPath" value="$PROJECT_DIR$/gen" />
+      <option name="generationParameters">
+        <list />
+      </option>
+      <option name="generatorPath" value="https://repo1.maven.org/maven2/org/openapitools/openapi-generator-cli/5.0.0/openapi-generator-cli-5.0.0.jar" />
+      <option name="jdkPath" value="Default" />
+      <option name="language" value="java" />
+      <option name="specificationPath" value="$PROJECT_DIR$/src/api/swagger.yaml" />
+      <method v="2" />
+    </configuration>
     <configuration name="dev" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
@@ -70,6 +119,8 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Node.js.genApi.js" />
+        <item itemvalue="Swagger Codegen.swagger.yml" />
         <item itemvalue="npm.dev" />
       </list>
     </recent_temporary>
@@ -82,7 +133,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1672682123086</updated>
-      <workItem from="1672682124386" duration="25472000" />
+      <workItem from="1672682124386" duration="37032000" />
     </task>
     <task id="LOCAL-00001" summary="feat: add frontend">
       <created>1672682575402</created>

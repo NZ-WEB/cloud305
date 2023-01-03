@@ -1,47 +1,35 @@
-import React, { FormEvent, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import React, { FormEvent, useCallback, useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Navigate, useSearchParams } from 'react-router-dom';
 
 import { AppDispatch } from '../../store/store';
-import { signIn } from './AuthSlice';
+import { authSelector, EAuthStatus, signIn } from './AuthSlice';
+import AuthForm from './components/AuthForm/AuthForm';
+import Placeholder from './components/Placeholder/Placeholder';
+import StatusAlert from './components/StatusAlert/StatusAlert';
 
 const AuthPage = () => {
-  const [email, setEmail] = useState<string>('');
-  const [password, setPassword] = useState<string>('');
-
+  const { status, errorMessage: authError } = useSelector(authSelector);
   const dispatch = useDispatch<AppDispatch>();
+  const [query] = useSearchParams();
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-
+  const handleSubmit = (email: string, password: string) => {
     dispatch(signIn({ email, password }));
   };
+
+  if (status === EAuthStatus.success) {
+    return <Navigate replace to={`/${query.get('to') ?? ''}`} />;
+  }
 
   return (
     <div>
       <h1>Auth page</h1>
 
-      <form onSubmit={(e) => handleSubmit(e)}>
-        <label htmlFor="email">
-          <input
-            onChange={(e) => setEmail(e.target.value)}
-            type="text"
-            id="email"
-            title={'Email'}
-            placeholder={'enter the email'}
-          />
-        </label>
-        <label htmlFor="password">
-          <input
-            type="password"
-            id="password"
-            title={'Password'}
-            placeholder={'enter the password'}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </label>
+      {status === EAuthStatus.loading && <Placeholder />}
 
-        <button type={'submit'}>Sign in</button>
-      </form>
+      <StatusAlert status={status} error={authError} />
+
+      <AuthForm onSubmit={handleSubmit} />
     </div>
   );
 };
