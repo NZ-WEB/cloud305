@@ -51,7 +51,8 @@ export const authSlice = createSlice({
         state.uid = payload.data.id;
         state.hasAuth = true;
         state.error = null;
-        state.status = EAuthStatus.success;
+
+        console.log(payload.headers);
       });
   },
 });

@@ -2,46 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d687a4bc-7d08-40b5-ab05-cf27f9cb4df9" name="Changes" comment="feat: finish base config">
-      <change afterPath="$PROJECT_DIR$/.eslintignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.eslintrc.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.prettierignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.prettierrc.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/screenshot.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/api/auth/signin.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/api/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/config/config.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/favicon.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/auth/AuthPage.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/auth/AuthSlice.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/counter/counterSlice.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/not-found/NotFoundPage.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/store/store.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../docker-compose.dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../../docker-compose.dev.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../api-gateway/main" beforeDir="false" afterPath="$PROJECT_DIR$/../api-gateway/main" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../api-gateway/pkg/auth/routes/login.go" beforeDir="false" afterPath="$PROJECT_DIR$/../api-gateway/pkg/auth/routes/login.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/hooks.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/store.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/auth/AuthPage.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/counter/Counter.module.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/counter/Counter.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/counter/counterAPI.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/counter/counterSlice.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/counter/not-found/NotFoundPage.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/logo.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/logo.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/router/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/router/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vite-env.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/vite-env.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tsconfig.node.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.node.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vite.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/vite.config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/auth/AuthSlice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/auth/AuthSlice.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/store.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -116,7 +82,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1672682123086</updated>
-      <workItem from="1672682124386" duration="20153000" />
+      <workItem from="1672682124386" duration="25472000" />
     </task>
     <task id="LOCAL-00001" summary="feat: add frontend">
       <created>1672682575402</created>
