@@ -1,15 +1,20 @@
-import { createBrowserRouter } from "react-router-dom";
-import React from "react";
-import App from "../App";
-import { NotFoundPage } from "../features/counter/not-found/NotFoundPage";
+import { createBrowserRouter } from 'react-router-dom';
+
+import App from '../App';
+import AuthPage from '../modules/auth/AuthPage';
+import NotFoundPage from '../modules/not-found/NotFoundPage';
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: '/',
     element: <App />,
   },
   {
-    path: "*",
+    path: '/sign-in',
+    element: <AuthPage />,
+  },
+  {
+    path: '*',
     element: <NotFoundPage />,
   },
 ]);

@@ -1,55 +1,53 @@
-import React from "react";
-import logo from "./logo.svg";
-import { Counter } from "./features/counter/Counter";
-import "./App.css";
+import './App.css';
+
+import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
+import logo from './logo.svg';
+import { increment } from './modules/counter/counterSlice';
+import { RootState } from './store/store';
 
 function App() {
+  const count = useSelector((state: RootState) => state.counter.value);
+  const dispatch = useDispatch();
+
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
+        <p className="header">
+          🚀 Vite + React + Typescript 🤘 & <br />
+          Eslint 🔥+ Prettier
         </p>
-        <span>
-          <span>Learn </span>
-          <a
-            className="App-link"
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux-toolkit.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span>
+
+        <div className="body">
+          <button onClick={() => dispatch(increment())}>🪂 Click me : {count}</button>
+
+          <p> Don&apos;t forgot to install Eslint and Prettier in Your Vscode.</p>
+
+          <p>
+            Mess up the code in <code>App.tsx </code> and save the file.
+          </p>
+          <p>
+            <a
+              className="App-link"
+              href="https://reactjs.org"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Learn React
+            </a>
+            {' | '}
+            <a
+              className="App-link"
+              href="https://vitejs.dev/guide/features.html"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Vite Docs
+            </a>
+          </p>
+        </div>
       </header>
     </div>
   );
