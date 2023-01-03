@@ -31,5 +31,6 @@ func Login(ctx *gin.Context, c pb.AuthServiceClient) {
 		return
 	}
 
+	ctx.SetCookie("AccessToken", res.Token, 3600, "/", "http://localhost", true, false)
 	ctx.JSON(http.StatusCreated, &res)
 }
