@@ -13,6 +13,15 @@ type RegisterRequestBody struct {
 	Password string `json:"password"`
 }
 
+// Register godoc
+// @Summary Sign up endpoint
+// @Description register user
+// @Produce  json
+// @Param   payload body RegisterRequestBody true "payload"
+// @Success 200 {object} pb.RegisterResponse "ok"
+// @Failure 502
+// @Failure 400
+// @Router /auth/register [post]
 func Register(ctx *gin.Context, c pb.AuthServiceClient) {
 	b := RegisterRequestBody{}
 

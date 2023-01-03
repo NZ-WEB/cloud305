@@ -1,0 +1,90 @@
+basePath: /
+definitions:
+  pb.LoginResponse:
+    properties:
+      error:
+        type: string
+      status:
+        type: integer
+      token:
+        type: string
+    type: object
+  pb.RegisterResponse:
+    properties:
+      error:
+        type: string
+      status:
+        type: integer
+    type: object
+  routes.LoginRequestBody:
+    properties:
+      email:
+        type: string
+      password:
+        type: string
+    type: object
+  routes.RegisterRequestBody:
+    properties:
+      email:
+        type: string
+      password:
+        type: string
+    type: object
+host: http://localhost
+info:
+  contact:
+    email: nzweb@vk.com
+    name: nzweb
+  description: CLOUD305 gateway api spec
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  termsOfService: _
+  title: API Gateway API
+  version: "1.0"
+paths:
+  /auth/login:
+    post:
+      description: login user
+      parameters:
+      - description: payload
+        in: body
+        name: payload
+        required: true
+        schema:
+          $ref: '#/definitions/routes.LoginRequestBody'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok
+          schema:
+            $ref: '#/definitions/pb.LoginResponse'
+        "400":
+          description: Bad Request
+        "502":
+          description: Bad Gateway
+      summary: Sign in endpoint
+  /auth/register:
+    post:
+      description: register user
+      parameters:
+      - description: payload
+        in: body
+        name: payload
+        required: true
+        schema:
+          $ref: '#/definitions/routes.RegisterRequestBody'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok
+          schema:
+            $ref: '#/definitions/pb.RegisterResponse'
+        "400":
+          description: Bad Request
+        "502":
+          description: Bad Gateway
+      summary: Sign up endpoint
+swagger: "2.0"
