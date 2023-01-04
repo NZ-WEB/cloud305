@@ -18,7 +18,7 @@ const AuthPage = () => {
   };
 
   if (status === EAuthStatus.success) {
-    return <Navigate replace to={`/${query.get('to') ?? ''}`} />;
+    return <Navigate replace to={`${query.get('to') ?? '/'}`} />;
   }
 
   return (

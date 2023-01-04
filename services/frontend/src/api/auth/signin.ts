@@ -1,4 +1,4 @@
-import api from '../index';
+import { api } from '../../router/components/PrivateRoute/PrivateRoute';
 
 export type SignInResponseSuccessType = {
   error: string;
