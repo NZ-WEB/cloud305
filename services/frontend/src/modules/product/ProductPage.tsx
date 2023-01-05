@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 
 import { getProductById } from '../../api/product/getProductById';
+import { withLayout } from '../../layout/main/MainLayout.hoc';
 
 const ProductPage = () => {
   useEffect(() => {
@@ -10,4 +11,4 @@ const ProductPage = () => {
   return <div>Product page</div>;
 };
 
-export default ProductPage;
+export default withLayout(ProductPage);

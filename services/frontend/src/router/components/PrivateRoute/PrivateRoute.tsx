@@ -2,9 +2,13 @@ import axios from 'axios';
 import { useEffect } from 'react';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Navigate, redirect, useNavigate } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 
 import config from '../../../config/config';
+import {
+  setAuthorizedMenu,
+  setUnauthorizedMenu,
+} from '../../../layout/main/MainLayoutSlice';
 import { hasAuthSelector, setAuth } from '../../../modules/auth/AuthSlice';
 import {
   getAccessTokenFromLS,
@@ -17,9 +21,19 @@ const api = axios.create({
 });
 
 const PrivateRoute = ({ children, to }: PrivateRouteProps) => {
-  const navigate = useNavigate();
   const hasAuth = useSelector(hasAuthSelector);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    console.log(hasAuth, ' newVal');
+    if (!hasAuth) {
+      dispatch(setUnauthorizedMenu());
+      console.log('unauthorized');
+    } else {
+      dispatch(setAuthorizedMenu());
+      console.log('authorized');
+    }
+  }, [hasAuth]);
 
   useEffect(() => {
     if (getAccessTokenFromLS()) {
@@ -54,7 +68,7 @@ const PrivateRoute = ({ children, to }: PrivateRouteProps) => {
     return config;
   });
 
-  if (!getAccessTokenFromLS()) {
+  if (!getAccessTokenFromLS() || !hasAuth) {
     return <Navigate to={`/sign-in?to=${to}`} />;
   }
 
