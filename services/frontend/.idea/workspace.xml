@@ -2,25 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d687a4bc-7d08-40b5-ab05-cf27f9cb4df9" name="Changes" comment="feat: finish base config">
-      <change afterPath="$PROJECT_DIR$/src/api/auth/signup.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/layout/components/MenuItemIconsComponent/MenuItemIconsComponent.props.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/layout/components/MenuItemIconsComponent/MenuItemIconsComponent.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/auth/RegisterPage.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/auth/components/RegisterForm/RegisterForm.props.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/auth/components/RegisterForm/RegisterForm.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modules/product/ProductSlice.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modules/product/api/product.api.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modules/product/type/product.types.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../api-gateway/main" beforeDir="false" afterPath="$PROJECT_DIR$/../api-gateway/main" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../api-gateway/pkg/auth/routes/login.go" beforeDir="false" afterPath="$PROJECT_DIR$/../api-gateway/pkg/auth/routes/login.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api-gateway/pkg/auth/routes/register.go" beforeDir="false" afterPath="$PROJECT_DIR$/../api-gateway/pkg/auth/routes/register.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/layout/components/Header/Header.props.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/layout/components/Header/Header.props.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/layout/components/Header/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/layout/components/Header/Header.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/layout/main/MainLayout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/layout/main/MainLayout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/layout/main/MainLayoutSlice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/layout/main/MainLayoutSlice.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/layout/main/MenuItems.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/layout/main/MenuItems.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/auth/AuthPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/auth/AuthPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/auth/AuthSlice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/auth/AuthSlice.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/auth/components/StatusAlert/StatusAlert.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/auth/components/StatusAlert/StatusAlert.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/router/components/PrivateRoute/PrivateRoute.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/router/components/PrivateRoute/PrivateRoute.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/router/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/router/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/product/ProductPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/product/ProductPage.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/store/store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/store.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -162,7 +153,7 @@
       <updated>1672682123086</updated>
       <workItem from="1672682124386" duration="40364000" />
       <workItem from="1672829693096" duration="7019000" />
-      <workItem from="1672903131806" duration="15196000" />
+      <workItem from="1672903131806" duration="16789000" />
     </task>
     <task id="LOCAL-00001" summary="feat: add frontend">
       <created>1672682575402</created>
