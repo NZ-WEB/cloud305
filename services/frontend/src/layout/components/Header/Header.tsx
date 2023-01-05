@@ -18,6 +18,7 @@ import Typography from '@mui/material/Typography';
 import * as React from 'react';
 import { Link } from 'react-router-dom';
 
+import { MenuItemIconsComponent } from '../MenuItemIconsComponent/MenuItemIconsComponent';
 import { HeaderProps } from './Header.props';
 
 interface AppBarProps extends MuiAppBarProps {
@@ -98,14 +99,14 @@ export default function Header({
               {item.href ? (
                 <ListItemButton component={Link} to={item.href}>
                   <ListItemIcon>
-                    <item.icon />
+                    <MenuItemIconsComponent title={item.title} />
                   </ListItemIcon>
                   <ListItemText primary={item.title} />
                 </ListItemButton>
               ) : (
                 <ListItemButton>
                   <ListItemIcon>
-                    <item.icon />
+                    <MenuItemIconsComponent title={item.title} />
                   </ListItemIcon>
                   <ListItemText primary={item.title} />
                 </ListItemButton>
@@ -114,18 +115,6 @@ export default function Header({
           ))}
         </List>
         <Divider />
-        <List>
-          {['All mail', 'Trash', 'Spam'].map((text, index) => (
-            <ListItem key={text} disablePadding>
-              <ListItemButton>
-                <ListItemIcon>
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                </ListItemIcon>
-                <ListItemText primary={text} />
-              </ListItemButton>
-            </ListItem>
-          ))}
-        </List>
       </Drawer>
     </>
   );

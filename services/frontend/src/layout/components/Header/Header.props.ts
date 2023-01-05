@@ -1,5 +1,5 @@
 import { DrawerHeaderType } from '../../main/MainLayout';
-import { IMenuItem } from '../../main/MainLayoutSlice';
+import { IMenuItem } from '../../main/MenuItems';
 
 export interface HeaderProps {
   open: boolean;

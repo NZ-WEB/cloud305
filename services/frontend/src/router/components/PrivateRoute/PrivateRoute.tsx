@@ -2,13 +2,9 @@ import axios from 'axios';
 import { useEffect } from 'react';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Navigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
 
 import config from '../../../config/config';
-import {
-  setAuthorizedMenu,
-  setUnauthorizedMenu,
-} from '../../../layout/main/MainLayoutSlice';
 import { hasAuthSelector, setAuth } from '../../../modules/auth/AuthSlice';
 import {
   getAccessTokenFromLS,
@@ -23,26 +19,7 @@ const api = axios.create({
 const PrivateRoute = ({ children, to }: PrivateRouteProps) => {
   const hasAuth = useSelector(hasAuthSelector);
   const dispatch = useDispatch();
-
-  useEffect(() => {
-    console.log(hasAuth, ' newVal');
-    if (!hasAuth) {
-      dispatch(setUnauthorizedMenu());
-      console.log('unauthorized');
-    } else {
-      dispatch(setAuthorizedMenu());
-      console.log('authorized');
-    }
-  }, [hasAuth]);
-
-  useEffect(() => {
-    if (getAccessTokenFromLS()) {
-      dispatch(setAuth(true));
-    } else {
-      removeAccessTokenFromSL();
-      dispatch(setAuth(false));
-    }
-  }, []);
+  const navigate = useNavigate();
 
   api.interceptors.response.use(
     (response) => {
@@ -68,9 +45,11 @@ const PrivateRoute = ({ children, to }: PrivateRouteProps) => {
     return config;
   });
 
-  if (!getAccessTokenFromLS() || !hasAuth) {
-    return <Navigate to={`/sign-in?to=${to}`} />;
-  }
+  useEffect(() => {
+    if (!getAccessTokenFromLS() || !hasAuth) {
+      navigate(`/sign-in?to=${to}`);
+    }
+  }, []);
 
   return <>{children}</>;
 };

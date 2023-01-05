@@ -1,11 +1,24 @@
 import CssBaseline from '@mui/material/CssBaseline';
 import { styled } from '@mui/material/styles';
 import * as React from 'react';
-import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
+import { hasAuthSelector, setAuth } from '../../modules/auth/AuthSlice';
+import {
+  getAccessTokenFromLS,
+  removeAccessTokenFromSL,
+} from '../../utills/token/token';
 import Header from '../components/Header/Header';
 import { MainLayoutProps } from './MainLayout.props';
-import { menuItemsSelector } from './MainLayoutSlice';
+import {
+  drawerIsOpenSelector,
+  menuItemsSelector,
+  setAuthorizedMenu,
+  setDrawerClosed,
+  setDrawerOpened,
+  setUnauthorizedMenu,
+} from './MainLayoutSlice';
 
 const drawerWidth = 240;
 
@@ -39,15 +52,34 @@ const DrawerHeader = styled('div')(({ theme }) => ({
 export type DrawerHeaderType = typeof DrawerHeader;
 
 const MainLayout = ({ children }: MainLayoutProps) => {
-  const [open, setOpen] = React.useState(false);
+  const open = useSelector(drawerIsOpenSelector);
   const menuItems = useSelector(menuItemsSelector);
+  const hasAuth = useSelector(hasAuthSelector);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (getAccessTokenFromLS()) {
+      dispatch(setAuth(true));
+    } else {
+      removeAccessTokenFromSL();
+      dispatch(setAuth(false));
+    }
+  }, []);
+
+  useEffect(() => {
+    if (hasAuth) {
+      dispatch(setAuthorizedMenu());
+    } else {
+      dispatch(setUnauthorizedMenu());
+    }
+  }, [hasAuth]);
 
   const handleDrawerOpen = () => {
-    setOpen(true);
+    dispatch(setDrawerOpened());
   };
 
   const handleDrawerClose = () => {
-    setOpen(false);
+    dispatch(setDrawerClosed());
   };
 
   return (

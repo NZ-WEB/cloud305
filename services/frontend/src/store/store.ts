@@ -12,6 +12,7 @@ export const store = configureStore({
     layout: layoutReducer,
   },
   devTools: process.env.NODE_ENV !== 'development' ? false : true,
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware(),
 });
 
 // Infer the `RootState` and `AppDispatch` types from the store itself
