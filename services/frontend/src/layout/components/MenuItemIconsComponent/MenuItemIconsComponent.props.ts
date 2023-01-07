@@ -1,4 +1,4 @@
-import { MenuItemTitle } from '../../main/MenuItems';
+import { MenuItemTitle } from './MenuItemIconsComponent';
 
 export interface IMenuItemIconsComponentProps {
   title: MenuItemTitle;

@@ -2,17 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d687a4bc-7d08-40b5-ab05-cf27f9cb4df9" name="Changes" comment="feat: finish base config">
-      <change afterPath="$PROJECT_DIR$/src/modules/product/ProductSlice.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/product/api/product.api.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/product/type/product.types.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.dockerignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../../docker-compose.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../api-gateway/main" beforeDir="false" afterPath="$PROJECT_DIR$/../api-gateway/main" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../api-gateway/pkg/auth/routes/login.go" beforeDir="false" afterPath="$PROJECT_DIR$/../api-gateway/pkg/auth/routes/login.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../api-gateway/pkg/auth/routes/register.go" beforeDir="false" afterPath="$PROJECT_DIR$/../api-gateway/pkg/auth/routes/register.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/layout/components/Header/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/layout/components/Header/Header.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/layout/main/MainLayout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/layout/main/MainLayout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/product/ProductPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/product/ProductPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/store.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/layout/components/MenuItemIconsComponent/MenuItemIconsComponent.props.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/layout/components/MenuItemIconsComponent/MenuItemIconsComponent.props.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,7 +64,7 @@
       <recent name="$PROJECT_DIR$/src/router/components/PrivateRoute" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.lint:fix">
+  <component name="RunManager" selected="Docker.Dockerfile">
     <configuration name="genApi.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/src/api/genApi.js" working-dir="$PROJECT_DIR$/src/api">
       <method v="2" />
     </configuration>
@@ -103,14 +100,12 @@
       <option name="specificationPath" value="$PROJECT_DIR$/src/api/swagger.yaml" />
       <method v="2" />
     </configuration>
-    <configuration name="dev" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/package.json" />
-      <command value="run" />
-      <scripts>
-        <script value="dev" />
-      </scripts>
-      <node-interpreter value="project" />
-      <envs />
+    <configuration name="Dockerfile" type="docker-deploy" factoryName="dockerfile" temporary="true" server-name="Docker">
+      <deployment type="dockerfile">
+        <settings>
+          <option name="sourceFilePath" value="Dockerfile" />
+        </settings>
+      </deployment>
       <method v="2" />
     </configuration>
     <configuration name="lint:fix" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
@@ -135,11 +130,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Docker.Dockerfile" />
         <item itemvalue="npm.lint:fix" />
         <item itemvalue="npm.lint:format" />
         <item itemvalue="Node.js.genApi.js" />
         <item itemvalue="Swagger Codegen.swagger.yml" />
-        <item itemvalue="npm.dev" />
       </list>
     </recent_temporary>
   </component>
@@ -153,7 +148,7 @@
       <updated>1672682123086</updated>
       <workItem from="1672682124386" duration="40364000" />
       <workItem from="1672829693096" duration="7019000" />
-      <workItem from="1672903131806" duration="16789000" />
+      <workItem from="1672903131806" duration="18838000" />
     </task>
     <task id="LOCAL-00001" summary="feat: add frontend">
       <created>1672682575402</created>
