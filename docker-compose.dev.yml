@@ -1,5 +1,19 @@
 version: "3.7"
 services:
+  frontend:
+    image: nzweb/cloud305-frontend
+    container_name: frontend
+    build:
+      context: services/frontend/
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    depends_on:
+      - api-gateway
+    environment:
+      API_BASE_URL: proxy/api
+    networks:
+      main:
+
   api-gateway:
     image: nzweb/cloud305-gateway
     build:
@@ -131,6 +145,7 @@ services:
     depends_on:
       - product
       - auth
+      - frontend
     volumes:
       - ./certs/:/certs/
       - ./proxy/dev.conf:/etc/nginx/conf.d/default.conf
@@ -142,4 +157,4 @@ volumes:
   product-db-data:
 networks:
   main:
-    driver: bridge
+    driver: nginx

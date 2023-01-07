@@ -1,5 +1,17 @@
 version: "3.7"
 services:
+  frontend:
+    build:
+      context: services/frontend/
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    networks:
+      main:
+    depends_on:
+      - api-gateway
+    environment:
+      API_BASE_URL: api-gateway
+
   api-gateway:
     image: nzweb/cloud305-gateway
     build:

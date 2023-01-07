@@ -1,16 +1,20 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 
-import { authApi } from '../api/auth/auth.api';
+import layoutReducer from '../layout/main/MainLayoutSlice';
 import authReducer from '../modules/auth/AuthSlice';
 import counterReducer from '../modules/counter/counterSlice';
+import productReducer from '../modules/product/ProductSlice';
 
 export const store = configureStore({
   reducer: {
     counter: counterReducer,
     auth: authReducer,
+    layout: layoutReducer,
+    product: productReducer,
   },
   devTools: process.env.NODE_ENV !== 'development' ? false : true,
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware(),
 });
 
 // Infer the `RootState` and `AppDispatch` types from the store itself

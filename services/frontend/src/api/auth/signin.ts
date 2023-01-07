@@ -1,10 +1,9 @@
-import { AxiosResponse } from 'axios';
+import { api } from '../../router/components/PrivateRoute/PrivateRoute';
 
-import api from '../index';
-
-type SignInResponseSuccessType = {
-  email: string;
-  id: string;
+export type SignInResponseSuccessType = {
+  error: string;
+  status: number;
+  token: string;
 };
 
 export type SignInParams = {
@@ -12,10 +11,8 @@ export type SignInParams = {
   password: string;
 };
 
-const signInApi = async (
-  data: SignInParams,
-): Promise<AxiosResponse<SignInResponseSuccessType>> => {
-  return await api.post<SignInResponseSuccessType>('/auth/login', data);
+const signInApi = async (data: SignInParams) => {
+  return api.post<SignInResponseSuccessType>('/auth/login', data);
 };
 
 export default signInApi;
