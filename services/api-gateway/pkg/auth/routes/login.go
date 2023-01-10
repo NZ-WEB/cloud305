@@ -13,9 +13,17 @@ type LoginRequestBody struct {
 	Password string `json:"password"`
 }
 
+// Login godoc
+// @Summary Sign in endpoint
+// @Description login user
+// @Produce  json
+// @Param   payload body LoginRequestBody true "payload"
+// @Success 200 {object} pb.LoginResponse "ok"
+// @Failure 502
+// @Failure 400
+// @Router /auth/login [post]
 func Login(ctx *gin.Context, c pb.AuthServiceClient) {
 	b := LoginRequestBody{}
-
 	if err := ctx.BindJSON(&b); err != nil {
 		ctx.AbortWithError(http.StatusBadRequest, err)
 		return
@@ -31,5 +39,6 @@ func Login(ctx *gin.Context, c pb.AuthServiceClient) {
 		return
 	}
 
-	ctx.JSON(http.StatusCreated, &res)
+	ctx.SetCookie("AccessToken", res.Token, 3600, "/", "http://localhost", true, false)
+	ctx.JSON(int(res.Status), &res)
 }

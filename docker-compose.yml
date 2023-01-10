@@ -1,5 +1,19 @@
 version: "3.7"
 services:
+  frontend:
+    build:
+      context: services/frontend/
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    networks:
+      main:
+    depends_on:
+      - api-gateway
+    environment:
+      VITE_BACK_URL: api-gateway/api
+    ports:
+      - 3000:3000
+
   api-gateway:
     image: nzweb/cloud305-gateway
     build:
@@ -26,13 +40,13 @@ services:
       dockerfile: Dockerfile
     environment:
       MS_PORT: 3001
-      DB_HOST: product-db
+      DB_HOST: mysql
       DB_USER: root
       DB_PASS: test
       DB_NAME: example
-      DB_PORT: 3309
+      DB_PORT: 3306
     depends_on:
-      - product-db
+      - mysql
     networks:
       main:
 
@@ -43,22 +57,22 @@ services:
       dockerfile: Dockerfile
     environment:
       MS_PORT: 3003
-      DB_HOST: auth-db
+      DB_HOST: mysql
       DB_USER: root
       DB_PASS: test
       DB_NAME: example
       DB_PORT: 3306
       JWT_SECRET_KEY: secret
     depends_on:
-      - auth-db
+      - mysql
     networks:
       main:
 
-  auth-db:
+  mysql:
     image: mariadb
     restart: always
     volumes:
-      - auth-db-data:/var/lib/mysql
+      - mysql-data:/var/lib/mysql
     environment:
       - MYSQL_DATABASE=example
       - MYSQL_ROOT_PASSWORD=test
@@ -68,53 +82,22 @@ services:
     networks:
       main:
 
-  auth-phpmyadmin:
+  mysql-phpmyadmin:
     image: phpmyadmin
     links:
-      - auth-db
+      - mysql
     environment:
-      PMA_HOST: auth-db
+      PMA_HOST: mysql
       PMA_PORT: 3306
-      PMA_USER: root
-      PMA_PASSWORD: test
-      PMA_ARBITRARY: 2
+      PMA_ARBITRARY: 1
     restart: always
     ports:
       - 8002:80
     depends_on:
-      - auth-db
+      - mysql
     networks:
       main:
 
-  product-db:
-    image: mariadb
-    restart: always
-    volumes:
-      - product-db-data:/var/lib/mysql
-    environment:
-      - MYSQL_DATABASE=example
-      - MYSQL_ROOT_PASSWORD=test
-      - MYSQL_TCP_PORT=3309
-    expose:
-      - 3309
-    networks:
-      main:
-
-  product-phpmyadmin:
-    image: phpmyadmin/phpmyadmin
-    container_name: product-pma
-    links:
-      - product-db
-    environment:
-      PMA_HOST: product-db
-      PMA_PORT: 3309
-      PMA_USER: root
-      PMA_PASSWORD: test
-    restart: always
-    ports:
-      - 8001:80
-    networks:
-      main:
 
   proxy:
     build: proxy
@@ -130,8 +113,7 @@ services:
       main:
 
 volumes:
-  auth-db-data:
-  product-db-data:
+  mysql-data:
 networks:
   main:
     driver: bridge
