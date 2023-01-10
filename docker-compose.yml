@@ -10,7 +10,7 @@ services:
     depends_on:
       - api-gateway
     environment:
-      API_BASE_URL: api-gateway
+      VITE_BACK_URL: api-gateway/api
     ports:
       - 3000:3000
 
@@ -89,9 +89,7 @@ services:
     environment:
       PMA_HOST: mysql
       PMA_PORT: 3306
-      PMA_USER: root
-      PMA_PASSWORD: test
-      PMA_ARBITRARY: 2
+      PMA_ARBITRARY: 1
     restart: always
     ports:
       - 8002:80

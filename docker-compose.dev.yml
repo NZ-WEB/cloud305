@@ -12,7 +12,7 @@ services:
     ports:
       - 3000:3000
     environment:
-      API_BASE_URL: proxy/api
+      VITE_BACK_URL: proxy/api
     networks:
       main:
 

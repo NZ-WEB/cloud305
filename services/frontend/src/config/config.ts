@@ -1,3 +1,3 @@
 export default {
-  API_BASE_URL: import.meta.env.API_BASE_URL ?? 'http://localhost',
+  API_BASE_URL: process.env.VITE_BACK_URL ?? 'http://localhost/api',
 };
