@@ -1,7 +1,6 @@
 server {
     listen 443 ssl;
     listen 80;
-    server_name localhost;
     ssl_certificate /certs/cloud305.crt;
     ssl_certificate_key /certs/cloud305.key;
     ssl_session_cache shared:SSL:10m;
@@ -14,8 +13,8 @@ server {
     resolver 8.8.8.8;
 
     if ($scheme = 'http') {
-            return 301 https://$host$request_uri;
-        }
+        return 301 https://$host$request_uri;
+    }
 
     location /api {
         proxy_pass   https://api-gateway:8000;
@@ -26,7 +25,6 @@ server {
 
     location / {
         proxy_pass   http://frontend:3000;
-        proxy_set_header Host $host;
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         proxy_set_header X-Real-IP $remote_addr;
     }
