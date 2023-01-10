@@ -15,4 +15,4 @@ EXPOSE 3000
 
 RUN yarn
 
-CMD ["yarn", "serve", "--port", "3000"]
+CMD ["yarn", "serve", "--port", "3000", "--host"]
