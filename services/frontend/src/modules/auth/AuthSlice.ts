@@ -59,6 +59,9 @@ export const authSlice = createSlice({
       state.errorMessage = '';
       state.status = EAuthStatus.default;
     },
+    setStatus: (state, action: PayloadAction<EAuthStatus>) => {
+      state.status = action.payload;
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -101,7 +104,7 @@ export const authSlice = createSlice({
   },
 });
 
-export const { setAuth, logout } = authSlice.actions;
+export const { setAuth, logout, setStatus } = authSlice.actions;
 
 export const hasAuthSelector = (state: RootState) => state.auth.hasAuth;
 export const authSelector = (state: RootState) => state.auth;

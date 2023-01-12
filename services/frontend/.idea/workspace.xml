@@ -2,15 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d687a4bc-7d08-40b5-ab05-cf27f9cb4df9" name="Changes" comment="feat: finish base config">
-      <change afterPath="$PROJECT_DIR$/src/modules/auth/components/AuthForm/AuthForm.module.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/auth/signin.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/auth/signin.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/auth/AuthPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/auth/AuthPage.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/modules/auth/AuthSlice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/auth/AuthSlice.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/auth/components/AuthForm/AuthForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/auth/components/AuthForm/AuthForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/auth/components/StatusAlert/StatusAlert.props.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/auth/components/StatusAlert/StatusAlert.props.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/auth/components/StatusAlert/StatusAlert.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/auth/components/StatusAlert/StatusAlert.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/router/components/PrivateRoute/PrivateRoute.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/router/components/PrivateRoute/PrivateRoute.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/auth/RegisterPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/auth/RegisterPage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/auth/components/RegisterForm/RegisterForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/auth/components/RegisterForm/RegisterForm.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -152,7 +147,7 @@
       <workItem from="1672682124386" duration="40364000" />
       <workItem from="1672829693096" duration="7019000" />
       <workItem from="1672903131806" duration="18838000" />
-      <workItem from="1673524932907" duration="5220000" />
+      <workItem from="1673524932907" duration="5556000" />
     </task>
     <task id="LOCAL-00001" summary="feat: add frontend">
       <created>1672682575402</created>
