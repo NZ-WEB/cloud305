@@ -3,15 +3,17 @@ import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import signInApi, { SignInParams } from '../../api/auth/signin';
 import signUpApi from '../../api/auth/signup';
 import { RootState } from '../../store/store';
+import { removeRoleFromLs, setRoleToLS } from '../../utills/role/role.utills';
 import {
   removeAccessTokenFromSL,
   setAccessTokenToLS,
 } from '../../utills/token/token';
+import { ERoles, RoleType } from './type/auth.types';
 
 export enum EAuthStatus {
   default = 'DEFAULT',
-  success = 'SUCCESS',
-  fail = 'FAIL',
+  success = 'success',
+  fail = 'error',
   loading = 'LOADING',
 }
 
@@ -19,12 +21,14 @@ export interface AuthState {
   errorMessage: string;
   hasAuth: boolean;
   status: EAuthStatus;
+  role: RoleType;
 }
 
 const initialState: AuthState = {
   hasAuth: false,
   errorMessage: '',
   status: EAuthStatus.default,
+  role: ERoles.student,
 };
 
 export const signIn = createAsyncThunk('auth/login', (data: SignInParams) => {
@@ -55,6 +59,9 @@ export const authSlice = createSlice({
       state.errorMessage = '';
       state.status = EAuthStatus.default;
     },
+    setStatus: (state, action: PayloadAction<EAuthStatus>) => {
+      state.status = action.payload;
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -68,6 +75,7 @@ export const authSlice = createSlice({
         state.hasAuth = true;
 
         removeAccessTokenFromSL();
+        removeRoleFromLs();
         state.errorMessage = error.message ?? '';
         console.log(error.message);
 
@@ -79,6 +87,7 @@ export const authSlice = createSlice({
         state.status = EAuthStatus.success;
         const res = payload.data;
         setAccessTokenToLS(res.token);
+        setRoleToLS(res.role);
       })
       .addCase(signUp.pending, (state) => {
         state.status = EAuthStatus.loading;
@@ -95,7 +104,7 @@ export const authSlice = createSlice({
   },
 });
 
-export const { setAuth, logout } = authSlice.actions;
+export const { setAuth, logout, setStatus } = authSlice.actions;
 
 export const hasAuthSelector = (state: RootState) => state.auth.hasAuth;
 export const authSelector = (state: RootState) => state.auth;
