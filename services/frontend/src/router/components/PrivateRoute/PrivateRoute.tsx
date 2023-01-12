@@ -6,12 +6,12 @@ import { useNavigate } from 'react-router-dom';
 
 import config from '../../../config/config';
 import { hasAuthSelector, setAuth } from '../../../modules/auth/AuthSlice';
+import { removeRoleFromLs } from '../../../utills/role/role.utills';
 import {
   getAccessTokenFromLS,
   removeAccessTokenFromSL,
 } from '../../../utills/token/token';
 import { PrivateRouteProps } from './PrivateRoute.props';
-import { removeRoleFromLs } from '../../../utills/role/role.utills';
 
 const api = axios.create({
   baseURL: config.API_BASE_URL,

@@ -3,17 +3,17 @@ import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import signInApi, { SignInParams } from '../../api/auth/signin';
 import signUpApi from '../../api/auth/signup';
 import { RootState } from '../../store/store';
+import { removeRoleFromLs, setRoleToLS } from '../../utills/role/role.utills';
 import {
   removeAccessTokenFromSL,
   setAccessTokenToLS,
 } from '../../utills/token/token';
 import { ERoles, RoleType } from './type/auth.types';
-import { removeRoleFromLs, setRoleToLS } from '../../utills/role/role.utills';
 
 export enum EAuthStatus {
   default = 'DEFAULT',
-  success = 'SUCCESS',
-  fail = 'FAIL',
+  success = 'success',
+  fail = 'error',
   loading = 'LOADING',
 }
 

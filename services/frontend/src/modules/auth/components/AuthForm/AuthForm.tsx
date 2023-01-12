@@ -1,5 +1,17 @@
-import React, { FormEvent, useCallback, useEffect, useState } from 'react';
+import {
+  Button,
+  Card,
+  FormControl,
+  FormHelperText,
+  Grid,
+  Input,
+  InputLabel,
+  TextField,
+} from '@mui/material';
+import Typography from '@mui/material/Typography';
+import React, { FormEvent, useCallback, useState } from 'react';
 
+import styles from './AuthForm.module.css';
 import { AuthFormProps } from './AuthForm.props';
 
 const AuthForm = ({ onSubmit }: AuthFormProps) => {
@@ -15,28 +27,50 @@ const AuthForm = ({ onSubmit }: AuthFormProps) => {
   );
 
   return (
-    <form onSubmit={(e) => handleSubmit(e)}>
-      <label htmlFor="email">
-        <input
-          onChange={(e) => setEmail(e.target.value)}
-          type="text"
-          id="email"
-          title={'Email'}
-          placeholder={'enter the email'}
-        />
-      </label>
-      <label htmlFor="password">
-        <input
-          type="password"
-          id="password"
-          title={'Password'}
-          placeholder={'enter the password'}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-      </label>
+    <>
+      <Card className={styles.authBox}>
+        <form className={styles.form} onSubmit={(e) => handleSubmit(e)}>
+          <Grid container spacing={2}>
+            <Grid item xs={12}>
+              <Typography variant="h4">Авторизация</Typography>
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                fullWidth
+                id="email"
+                label="E-mail адрес"
+                variant="outlined"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </Grid>
 
-      <button type={'submit'}>Sign in</button>
-    </form>
+            <Grid item xs={12}>
+              <TextField
+                fullWidth
+                id="password"
+                label="Пароль"
+                variant="outlined"
+                value={password}
+                type="password"
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </Grid>
+
+            <Grid item xs={12}>
+              <Button
+                variant="contained"
+                fullWidth
+                color="primary"
+                type={'submit'}
+              >
+                Войти
+              </Button>
+            </Grid>
+          </Grid>
+        </form>
+      </Card>
+    </>
   );
 };
 
