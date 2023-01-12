@@ -7,6 +7,8 @@ import {
   removeAccessTokenFromSL,
   setAccessTokenToLS,
 } from '../../utills/token/token';
+import { ERoles, RoleType } from './type/auth.types';
+import { removeRoleFromLs, setRoleToLS } from '../../utills/role/role.utills';
 
 export enum EAuthStatus {
   default = 'DEFAULT',
@@ -19,12 +21,14 @@ export interface AuthState {
   errorMessage: string;
   hasAuth: boolean;
   status: EAuthStatus;
+  role: RoleType;
 }
 
 const initialState: AuthState = {
   hasAuth: false,
   errorMessage: '',
   status: EAuthStatus.default,
+  role: ERoles.student,
 };
 
 export const signIn = createAsyncThunk('auth/login', (data: SignInParams) => {
@@ -68,6 +72,7 @@ export const authSlice = createSlice({
         state.hasAuth = true;
 
         removeAccessTokenFromSL();
+        removeRoleFromLs();
         state.errorMessage = error.message ?? '';
         console.log(error.message);
 
@@ -79,6 +84,7 @@ export const authSlice = createSlice({
         state.status = EAuthStatus.success;
         const res = payload.data;
         setAccessTokenToLS(res.token);
+        setRoleToLS(res.role);
       })
       .addCase(signUp.pending, (state) => {
         state.status = EAuthStatus.loading;

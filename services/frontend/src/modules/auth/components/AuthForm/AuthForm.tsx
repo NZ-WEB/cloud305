@@ -6,7 +6,6 @@ const AuthForm = ({ onSubmit }: AuthFormProps) => {
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
 
-  console.log('rerender');
   const handleSubmit = useCallback(
     (e: FormEvent<HTMLFormElement>) => {
       e.preventDefault();

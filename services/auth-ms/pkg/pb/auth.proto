@@ -33,6 +33,13 @@ message LoginResponse {
   int64 status = 1;
   string error = 2;
   string token = 3;
+  string role = 4;
+}
+
+enum UserRoles {
+  student = 0;
+  teacher = 2;
+  admin = 1;
 }
 
 // Validate

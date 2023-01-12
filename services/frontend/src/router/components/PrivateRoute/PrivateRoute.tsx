@@ -2,7 +2,7 @@ import axios from 'axios';
 import { useEffect } from 'react';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import config from '../../../config/config';
 import { hasAuthSelector, setAuth } from '../../../modules/auth/AuthSlice';
@@ -11,6 +11,7 @@ import {
   removeAccessTokenFromSL,
 } from '../../../utills/token/token';
 import { PrivateRouteProps } from './PrivateRoute.props';
+import { removeRoleFromLs } from '../../../utills/role/role.utills';
 
 const api = axios.create({
   baseURL: config.API_BASE_URL,
@@ -30,6 +31,7 @@ const PrivateRoute = ({ children, to }: PrivateRouteProps) => {
         console.log('unauthorized in comp');
         dispatch(setAuth(false));
         removeAccessTokenFromSL();
+        removeRoleFromLs();
       }
       return error;
     },

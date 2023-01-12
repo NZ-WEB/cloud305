@@ -2,14 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d687a4bc-7d08-40b5-ab05-cf27f9cb4df9" name="Changes" comment="feat: finish base config">
-      <change afterPath="$PROJECT_DIR$/.dockerignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../../docker-compose.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modules/auth/type/auth.types.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utills/role/role.utills.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../api-gateway/main" beforeDir="false" afterPath="$PROJECT_DIR$/../api-gateway/main" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api-gateway/pkg/auth/pb/auth.pb.go" beforeDir="false" afterPath="$PROJECT_DIR$/../api-gateway/pkg/auth/pb/auth.pb.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api-gateway/pkg/auth/pb/auth.proto" beforeDir="false" afterPath="$PROJECT_DIR$/../api-gateway/pkg/auth/pb/auth.proto" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../api-gateway/pkg/auth/routes/login.go" beforeDir="false" afterPath="$PROJECT_DIR$/../api-gateway/pkg/auth/routes/login.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../api-gateway/pkg/auth/routes/register.go" beforeDir="false" afterPath="$PROJECT_DIR$/../api-gateway/pkg/auth/routes/register.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../auth-ms/main" beforeDir="false" afterPath="$PROJECT_DIR$/../auth-ms/main" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../auth-ms/pkg/models/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/../auth-ms/pkg/models/user.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../auth-ms/pkg/pb/auth.pb.go" beforeDir="false" afterPath="$PROJECT_DIR$/../auth-ms/pkg/pb/auth.pb.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../auth-ms/pkg/pb/auth.proto" beforeDir="false" afterPath="$PROJECT_DIR$/../auth-ms/pkg/pb/auth.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../auth-ms/pkg/services/auth.go" beforeDir="false" afterPath="$PROJECT_DIR$/../auth-ms/pkg/services/auth.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/layout/components/MenuItemIconsComponent/MenuItemIconsComponent.props.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/layout/components/MenuItemIconsComponent/MenuItemIconsComponent.props.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/auth/signin.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/auth/signin.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/config/config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/config/config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/auth/AuthSlice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/auth/AuthSlice.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/router/components/PrivateRoute/PrivateRoute.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/router/components/PrivateRoute/PrivateRoute.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,23 +48,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/evgenijfedoseev/development/golang/base-ms-go/services/frontend",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.standard": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.standard": "",
-    "nodejs_package_manager_path": "npm",
-    "prettierjs.PrettierConfiguration.Package": "/Users/evgenijfedoseev/development/golang/base-ms-go/services/frontend/node_modules/prettier",
-    "settings.editor.selected.configurable": "settings.javascript.prettier",
-    "ts.external.directory.path": "/Users/evgenijfedoseev/development/golang/base-ms-go/services/frontend/node_modules/typescript/lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/evgenijfedoseev/development/golang/base-ms-go/services/frontend&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/Users/evgenijfedoseev/development/golang/base-ms-go/services/frontend/node_modules/prettier&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;settings.javascript.prettier&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/evgenijfedoseev/development/golang/base-ms-go/services/frontend/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/api" />
@@ -130,11 +141,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Docker.Dockerfile" />
-        <item itemvalue="npm.lint:fix" />
         <item itemvalue="npm.lint:format" />
-        <item itemvalue="Node.js.genApi.js" />
+        <item itemvalue="npm.lint:fix" />
+        <item itemvalue="Docker.Dockerfile" />
         <item itemvalue="Swagger Codegen.swagger.yml" />
+        <item itemvalue="Node.js.genApi.js" />
       </list>
     </recent_temporary>
   </component>
@@ -149,6 +160,7 @@
       <workItem from="1672682124386" duration="40364000" />
       <workItem from="1672829693096" duration="7019000" />
       <workItem from="1672903131806" duration="18838000" />
+      <workItem from="1673524932907" duration="1408000" />
     </task>
     <task id="LOCAL-00001" summary="feat: add frontend">
       <created>1672682575402</created>
