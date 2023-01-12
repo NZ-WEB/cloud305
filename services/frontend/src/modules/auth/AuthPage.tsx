@@ -1,6 +1,6 @@
-import React, { FormEvent, useCallback, useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Navigate, useNavigate, useSearchParams } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 
 import { AppDispatch } from '../../store/store';
 import { authSelector, EAuthStatus, logout, signIn } from './AuthSlice';
@@ -17,6 +17,7 @@ const AuthPage = () => {
   const dispatch = useDispatch<AppDispatch>();
   const [query] = useSearchParams();
   const navigate = useNavigate();
+  let isLogout = false;
 
   const handleSubmit = (email: string, password: string) => {
     dispatch(signIn({ email, password }));
@@ -25,22 +26,27 @@ const AuthPage = () => {
   useEffect(() => {
     if (query.get('logout')) {
       dispatch(logout());
+      query.delete('logout');
+      isLogout = true;
     }
   }, []);
 
   useEffect(() => {
-    if (hasAuth && !query.get('logout')) {
+    if (hasAuth && !query.get('logout') && !isLogout) {
+      console.log(isLogout);
       navigate(`${query.get('to') ?? '/'}`);
     }
   }, [hasAuth]);
 
   return (
     <div>
-      <h1>Auth page</h1>
-
       {status === EAuthStatus.loading && <Placeholder />}
 
-      <StatusAlert status={status} error={authError} />
+      <StatusAlert
+        successText="Авторизация успешно пройдена!"
+        status={status}
+        error={authError}
+      />
 
       <AuthForm onSubmit={handleSubmit} />
     </div>

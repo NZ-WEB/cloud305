@@ -28,6 +28,7 @@ func (s *Server) Register(ctx context.Context, req *pb.RegisterRequest) (*pb.Reg
 
 	user.Email = req.Email
 	user.Password = utils.HashPassword(req.Password)
+	user.Role = "student" // set role=student by default
 
 	s.H.DB.Create(&user)
 
@@ -56,10 +57,18 @@ func (s *Server) Login(ctx context.Context, req *pb.LoginRequest) (*pb.LoginResp
 	}
 
 	token, _ := s.Jwt.GenerateToken(user)
+	roleVal, ok := pb.UserRoles_value[user.Role]
+	if !ok {
+		return &pb.LoginResponse{
+			Status: http.StatusInternalServerError,
+			Error:  "Not valid role",
+		}, nil
+	}
 
 	return &pb.LoginResponse{
 		Status: http.StatusOK,
 		Token:  token,
+		Role:   pb.UserRoles(roleVal).String(),
 	}, nil
 }
 

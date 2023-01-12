@@ -13,6 +13,13 @@ type LoginRequestBody struct {
 	Password string `json:"password"`
 }
 
+type LoginResponse struct {
+	Status int64  `json:"status"`
+	Error  string `json:"error"`
+	Token  string `json:"token"`
+	Role   string `json:"role"`
+}
+
 // Login godoc
 // @Summary Sign in endpoint
 // @Description login user

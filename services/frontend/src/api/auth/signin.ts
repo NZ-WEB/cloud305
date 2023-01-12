@@ -1,9 +1,11 @@
+import { RoleType } from '../../modules/auth/type/auth.types';
 import { api } from '../../router/components/PrivateRoute/PrivateRoute';
 
 export type SignInResponseSuccessType = {
   error: string;
   status: number;
   token: string;
+  role: RoleType;
 };
 
 export type SignInParams = {
