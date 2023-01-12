@@ -62,10 +62,7 @@
       <recent name="$PROJECT_DIR$/src/router/components/PrivateRoute" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.lint:format">
-    <configuration name="genApi.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/src/api/genApi.js" working-dir="$PROJECT_DIR$/src/api">
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="npm.lint">
     <configuration default="true" type="SwaggerCodegen">
       <option name="activeConfigurationType" value="FILE" />
       <option name="configurationPath" value="" />
@@ -106,6 +103,16 @@
       </deployment>
       <method v="2" />
     </configuration>
+    <configuration name="lint" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="lint" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
     <configuration name="lint:fix" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
@@ -128,11 +135,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="npm.lint" />
         <item itemvalue="npm.lint:format" />
         <item itemvalue="npm.lint:fix" />
         <item itemvalue="Docker.Dockerfile" />
         <item itemvalue="Swagger Codegen.swagger.yml" />
-        <item itemvalue="Node.js.genApi.js" />
       </list>
     </recent_temporary>
   </component>
